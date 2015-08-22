@@ -1,4 +1,4 @@
-package com.konradkrakowiak.codepote;
+package com.konradkrakowiak.codepot;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

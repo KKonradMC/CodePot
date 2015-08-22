@@ -1,4 +1,4 @@
-package com.konradkrakowiak.codepote;
+package com.konradkrakowiak.codepot;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

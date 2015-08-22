@@ -1,4 +1,4 @@
-package com.konradkrakowiak.codepote.model;
+package com.konradkrakowiak.codepot.model;
 
 import java.util.List;
 
