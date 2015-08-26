@@ -1,7 +1,9 @@
 package com.konradkrakowiak.codepot.model;
 
-import java.util.Date;
+import lombok.Getter;
 
+//TODO check that serialization named is necessary
+//TODO make it parcelable
 public class TimeSlots {
 
     private interface Metadata {
@@ -14,13 +16,14 @@ public class TimeSlots {
         String ID = "id";
     }
 
-    Date startTime;
+    String startTime;
 
     Day day;
 
+    @Getter
     String room;
 
-    Date endTime;
+    String endTime;
 
     int order;
 
