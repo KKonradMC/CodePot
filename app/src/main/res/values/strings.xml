@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">Code Pote</string>
+    <string name="app_name">Code Pot</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_mentor">Mentors</string>
+    <string name="action_search">Search</string>
+    <string name="room">Room %s</string>
+    <string name="free_spaces">Free spaces %s</string>
+    <string name="workshop_title">Workshop details</string>
+    <string name="workshop_rooms">Rooms:\n%s</string>
+    <string name="workshop_free_spaces">Free spaces %1$d (of total %2$d)</string>
+    <string name="workshop_mentors">Mentors:\n%s</string>
+    <string name="mentors_title">Mentors</string>
 </resources>

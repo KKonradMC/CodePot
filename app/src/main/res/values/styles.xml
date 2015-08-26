@@ -1,8 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="toolbarStyle">@style/CodePotActionBarStyle</item>
+        <item name="android:windowBackground">@color/code_pot_gray</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="CodePotActionBarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/code_pot_green</item>
     </style>
 
 </resources>
