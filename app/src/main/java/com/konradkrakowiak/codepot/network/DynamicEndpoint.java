@@ -1,12 +1,14 @@
 package com.konradkrakowiak.codepot.network;
 
 import com.konradkrakowiak.codepot.BuildConfig;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import retrofit.Endpoint;
 
-//TODO create singleton
+@Singleton
 public class DynamicEndpoint implements Endpoint {
 
-    //TODO create provider and inject members
+    @Inject
     DynamicEndpoint() {
 
     }

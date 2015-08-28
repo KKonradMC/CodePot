@@ -2,6 +2,8 @@ package com.konradkrakowiak.codepot.di;
 
 
 import com.google.gson.Gson;
+import com.konradkrakowiak.codepot.BuildConfig;
+import com.konradkrakowiak.codepot.network.CodePotSpiceService;
 import com.konradkrakowiak.codepot.network.DynamicEndpoint;
 import com.octo.android.robospice.SpiceManager;
 import dagger.Module;
@@ -23,7 +25,10 @@ public class NetworkModule {
     @Provides
     @Singleton
     RestAdapter.Builder provideRestAdapterBuilder(DynamicEndpoint dynamicEndpoint, Converter converter) {
-        return null;//TODO set right endpoint and set right level log;
+        return new RestAdapter.Builder()
+                .setEndpoint(dynamicEndpoint)
+                .setConverter(converter)
+                .setLogLevel(BuildConfig.DEBUG ? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE);
     }
 
     @Provides
@@ -40,6 +45,6 @@ public class NetworkModule {
 
     @Provides
     SpiceManager provideSpiceManager() {
-        return null; //TODO return spice manage
+        return new SpiceManager(CodePotSpiceService.class); //TODO return spice manage
     }
 }

@@ -5,6 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.di.qualifier.ViewQualifier;
 import com.konradkrakowiak.codepot.model.Mentor;
 import com.konradkrakowiak.codepot.model.TimeSlots;
@@ -75,7 +78,7 @@ public class WorkshopAdapter extends RecyclerView.Adapter<WorkshopAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        //TODO Bind this object R.id.workshop_item_mentor
+        @Bind(R.id.workshop_item_mentor)
         TextView mentor;
 
         //TODO Bind this object R.id.workshop_item_title
@@ -100,15 +103,15 @@ public class WorkshopAdapter extends RecyclerView.Adapter<WorkshopAdapter.ViewHo
         @Inject
         public ViewHolder(@ViewQualifier.WorkshopItemView View view) {
             super(view);
-            //TODO bind this object
+            ButterKnife.bind(this, view);
         }
 
 
         void bind(Workshop workshop) {
             mentor.setText(createMentorsText(workshop));
-            title.setText(workshop.getTitle());
-            room.setText(String.format(roomString, createRoomText(workshop)));
-            freeSet.setText(String.format(freeSpaces, workshop.getFreeSeats()));
+//            title.setText(workshop.getTitle());
+//            room.setText(String.format(roomString, createRoomText(workshop)));
+//            freeSet.setText(String.format(freeSpaces, workshop.getFreeSeats()));
         }
 
         String createMentorsText(Workshop workshop) {

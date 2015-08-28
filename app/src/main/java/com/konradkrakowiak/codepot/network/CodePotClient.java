@@ -3,12 +3,15 @@ package com.konradkrakowiak.codepot.network;
 
 import com.konradkrakowiak.codepot.model.Query;
 import com.konradkrakowiak.codepot.model.Workshops;
+import retrofit.http.Body;
+import retrofit.http.GET;
+import retrofit.http.POST;
 
 public interface CodePotClient {
 
-    //TODO Create GET method for endpoint
+    @GET(Rest.Endpoint.WORKSHOPS)
     Workshops getWorkshops();
 
-    //TODO Create POST method for endpoint and add Body
-    Workshops searchWorkShop(Query query);
+    @POST(Rest.Endpoint.SEARCH)
+    Workshops searchWorkShop(@Body Query query);
 }

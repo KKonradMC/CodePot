@@ -10,6 +10,8 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import com.konradkrakowiak.codepot.CodePotApp;
 import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.common.DividerItemDecoration;
@@ -62,10 +64,10 @@ public class MainActivity extends AppCompatActivity implements PendingRequestLis
     @Inject
     DividerItemDecoration dividerItemDecoration;
 
-    //TODO Bind this view
+    @Bind(R.id.workshops_list)
     RecyclerView workshopsList;
 
-    //TODO Bind this view
+    @Bind(R.id.workshops_swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements PendingRequestLis
         CodePotApp.component(this).inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //TODO inject views
+        ButterKnife.bind(this);
         if (savedInstanceState != null) {
             spiceManager.addListenerIfPending(Workshops.class, getWorkshopsRequest, this);
         } else {
@@ -91,13 +93,13 @@ public class MainActivity extends AppCompatActivity implements PendingRequestLis
     @Override
     protected void onStart() {
         super.onStart();
-        //TODO startSpice manager
+        spiceManager.start(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        //TODO stop manager
+        spiceManager.shouldStop();
     }
 
     @Override

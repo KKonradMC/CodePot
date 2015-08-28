@@ -19,13 +19,13 @@ public class IntentModule {
     }
 
     @IntentQualifier.WorkshopActivityIntentQualifier
-    @Provides//TODO provider and qualifier
+    @Provides
     Intent provideWorkshopActivityIntent() {
         return new Intent(context, WorkshopActivity.class);
     }
 
     @IntentQualifier.MentorsActivityIntentQualifier
-    @Provides//TODO provider and qualifier
+    @Provides
     Intent provideMentorActivityIntent() {
         return new Intent(context, MentorsActivity.class);
     }

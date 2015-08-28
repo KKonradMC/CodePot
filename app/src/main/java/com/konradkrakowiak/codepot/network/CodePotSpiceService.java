@@ -1,20 +1,23 @@
 package com.konradkrakowiak.codepot.network;
 
+import com.konradkrakowiak.codepot.CodePotApp;
+import com.konradkrakowiak.codepot.di.qualifier.ExceptionType;
 import com.octo.android.robospice.retrofit.RetrofitGsonSpiceService;
+import javax.inject.Inject;
+import javax.inject.Named;
 import retrofit.RestAdapter;
 
 
 public class CodePotSpiceService extends RetrofitGsonSpiceService {
 
-    //Inject this object
+    @Inject
     RestAdapter.Builder builder;
 
-    //TODO inject and set name for this object
     UnsupportedOperationException unsupportedOperationException;
 
     @Override
     public void onCreate() {
-        //TODO call right method to inject
+        CodePotApp.component(this).inject(this);
         super.onCreate();
     }
 
@@ -25,7 +28,6 @@ public class CodePotSpiceService extends RetrofitGsonSpiceService {
 
     @Override
     protected RestAdapter.Builder createRestAdapterBuilder() {
-        //Return right adapter
-        return null;
+        return builder;
     }
 }
