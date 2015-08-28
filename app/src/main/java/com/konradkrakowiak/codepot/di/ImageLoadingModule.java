@@ -8,6 +8,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import dagger.Module;
+import dagger.Provides;
+import javax.inject.Singleton;
 
 @Module
 public class ImageLoadingModule {
@@ -26,27 +28,29 @@ public class ImageLoadingModule {
         this.context = context;
     }
 
-    //TODO provider
+    @Provides
     DisplayImageOptions.Builder provideDefaultDisplayImageOptionsBuilder() {
         return null; //TODO set cacheInMemory and cacheOnDisk
     }
 
-    //TODO provider and singleton
+    @Provides
+    @Singleton
     DisplayImageOptions provideDefaultDisplayImageOptions(DisplayImageOptions.Builder builder) {
         return builder.build();
     }
 
-    //TODO provider
+    @Provides
     MemoryCache provideMemoryCache() {
         return null; //TODO return MemoryCache - it can be LruMemoryCache;
     }
 
-    //TODO provider
+   @Provides
     DiskCache provideDiskCache() {
         return null; //TODO return DiskCache - it can be UnlimitedDiskCache;
     }
 
-    //TODO provider and singleton
+    @Provides
+    @Singleton
     ImageLoaderConfiguration provideImageLoaderConfigurationWithMemory(DisplayImageOptions displayImageOptions, MemoryCache memoryCache, DiskCache diskCache) {
     /* TODO create ImageLoaderConfiguration via builder
                 set defaultDisplayImageOptions
@@ -60,7 +64,8 @@ public class ImageLoadingModule {
         return null;
     }
 
-    //TODO provider and singleton
+    @Provides
+    @Singleton
     ImageLoader provideImageLoader(ImageLoaderConfiguration imageLoaderConfiguration) {
         //TODO create and init ImageLoader
         return null;
