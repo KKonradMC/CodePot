@@ -18,7 +18,7 @@ public class IntentModule {
         this.context = context;
     }
 
-    @IntentQualifier.WebBrowserQualifier
+    @IntentQualifier.WorkshopActivityIntentQualifier
     @Provides//TODO provider and qualifier
     Intent provideWorkshopActivityIntent() {
         return new Intent(context, WorkshopActivity.class);
@@ -31,7 +31,7 @@ public class IntentModule {
     }
 
     @IntentQualifier.WebBrowserQualifier
-    @Provides//TODO provider and qualifier
+    @Provides
     Intent provideWebBrowserIntent() {
         return new Intent(Intent.ACTION_VIEW);
     }

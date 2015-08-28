@@ -2,10 +2,11 @@ package com.konradkrakowiak.codepot.network;
 
 import com.konradkrakowiak.codepot.model.Workshops;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
+import javax.inject.Inject;
 
 public class GetWorkshopsRequest extends RetrofitSpiceRequest<Workshops, CodePotClient> {
 
-    //TODO create provider and inject members
+    @Inject
     public GetWorkshopsRequest() {
         super(Workshops.class, CodePotClient.class);
     }

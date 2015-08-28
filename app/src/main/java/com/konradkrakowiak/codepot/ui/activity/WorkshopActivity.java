@@ -7,10 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import com.konradkrakowiak.codepot.R;
+import com.konradkrakowiak.codepot.di.qualifier.IntentQualifier;
 import com.konradkrakowiak.codepot.model.Mentor;
 import com.konradkrakowiak.codepot.model.Workshop;
 import java.util.List;
+import javax.inject.Inject;
 import javax.inject.Provider;
+import javax.inject.Singleton;
 
 public class WorkshopActivity extends AppCompatActivity {
 
@@ -115,13 +118,14 @@ public class WorkshopActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //TODO create singleton
+    @Singleton
     public static class IntentFactory {
 
-        //TODO inject this object and use qualifier
+        @IntentQualifier.WorkshopActivityIntentQualifier
+        @Inject
         Provider<Intent> intentProvider;
 
-        //TODO create provider and inject this object
+        @Inject
         IntentFactory() {
 
         }

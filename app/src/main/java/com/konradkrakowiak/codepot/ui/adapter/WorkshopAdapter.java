@@ -11,6 +11,7 @@ import com.konradkrakowiak.codepot.model.TimeSlots;
 import com.konradkrakowiak.codepot.model.Workshop;
 import com.konradkrakowiak.codepot.model.Workshops;
 import java.util.List;
+import javax.inject.Inject;
 import javax.inject.Provider;
 
 
@@ -18,15 +19,15 @@ public class WorkshopAdapter extends RecyclerView.Adapter<WorkshopAdapter.ViewHo
 
     private static final String WORKSHOPS = "WORKSHOPS";
 
-    //TODO inject this
+    @Inject
     List<Workshop> workshops;
 
     OnWorkshopItemClickListener onWorkshopItemClickListener = OnWorkshopItemClickListener.NULL;
 
-    //TODO inject this
+    @Inject
     Provider<WorkshopAdapter.ViewHolder> provider;
 
-    //TODO create provider and inject members
+    @Inject
     WorkshopAdapter() {
     }
 
@@ -93,10 +94,10 @@ public class WorkshopAdapter extends RecyclerView.Adapter<WorkshopAdapter.ViewHo
         //TODO Bind this string R.string.free_spaces)
         String freeSpaces;
 
-        //TODO inject this object
+        @Inject
         Provider<StringBuilder> stringBuilderProvider;
 
-        //TODO inject this object
+        @Inject
         public ViewHolder(@ViewQualifier.WorkshopItemView View view) {
             super(view);
             //TODO bind this object

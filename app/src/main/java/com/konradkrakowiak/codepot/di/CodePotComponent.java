@@ -7,7 +7,9 @@ import com.konradkrakowiak.codepot.ui.activity.MainActivity;
 import com.konradkrakowiak.codepot.ui.activity.MentorsActivity;
 import com.konradkrakowiak.codepot.ui.activity.WorkshopActivity;
 import dagger.Component;
+import javax.inject.Singleton;
 
+@Singleton
 @Component(modules = {ExceptionModule.class, ImageLoadingModule.class, IntentModule.class, LangModule.class, NetworkModule.class, UtilModule.class, WidgetModule.class})
 public interface CodePotComponent {
 

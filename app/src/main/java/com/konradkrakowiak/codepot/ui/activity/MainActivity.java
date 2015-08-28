@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.konradkrakowiak.codepot.CodePotApp;
 import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.common.DividerItemDecoration;
+import com.konradkrakowiak.codepot.di.qualifier.DividerItemDecorationType;
+import com.konradkrakowiak.codepot.di.qualifier.IntentQualifier;
 import com.konradkrakowiak.codepot.model.Mentor;
 import com.konradkrakowiak.codepot.model.Workshop;
 import com.konradkrakowiak.codepot.model.Workshops;
@@ -25,6 +27,7 @@ import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.PendingRequestListener;
 import java.util.List;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Provider;
 
 public class MainActivity extends AppCompatActivity implements PendingRequestListener<Workshops>, WorkshopAdapter.OnWorkshopItemClickListener,
@@ -55,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements PendingRequestLis
     MentorsActivity.IntentFactory intentMentorsActivityFactory;
 
 
-    @Inject //TODO and set right named
+    @Named(DividerItemDecorationType.VERTICAL_DIVIDER_ITEM_DECORATION)
+    @Inject
     DividerItemDecoration dividerItemDecoration;
 
     //TODO Bind this view

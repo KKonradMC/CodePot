@@ -7,10 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import com.konradkrakowiak.codepot.R;
+import com.konradkrakowiak.codepot.di.qualifier.IntentQualifier;
 import com.konradkrakowiak.codepot.model.Mentor;
 import com.konradkrakowiak.codepot.ui.adapter.MentorsAdapter;
 import java.util.List;
+import javax.inject.Inject;
 import javax.inject.Provider;
+import javax.inject.Singleton;
 
 public class MentorsActivity extends AppCompatActivity implements MentorsAdapter.OnLinkButtonClickListener {
 
@@ -55,13 +58,14 @@ public class MentorsActivity extends AppCompatActivity implements MentorsAdapter
         startActivity(webIntent);
     }
 
-    //TODO create singleton
+    @Singleton
     public static class IntentFactory {
 
-        //TODO inject this object and use qualifier
+        @IntentQualifier.MentorsActivityIntentQualifier
+        @Inject
         Provider<Intent> intentProvider;
 
-        //TODO inject this object
+        @Inject
         IntentFactory() {
 
         }
