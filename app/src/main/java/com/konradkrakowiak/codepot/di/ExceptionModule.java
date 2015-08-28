@@ -6,7 +6,7 @@ import dagger.Provides;
 import javax.inject.Named;
 
 @Module
-public class ExceptionModule {
+public class ExceptionModule  {
 
     @Provides
     @Named(ExceptionType.UNSUPPORTED_OPERATION_METHOD)

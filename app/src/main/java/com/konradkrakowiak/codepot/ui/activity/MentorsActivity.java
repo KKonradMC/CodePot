@@ -17,6 +17,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
+import org.parceler.Parcel;
+import org.parceler.Parcels;
 
 public class MentorsActivity extends AppCompatActivity implements MentorsAdapter.OnLinkButtonClickListener {
 
@@ -41,7 +43,7 @@ public class MentorsActivity extends AppCompatActivity implements MentorsAdapter
         CodePotApp.component(this).inject(this);
         super.onCreate(savedInstanceState);
         final Intent intent = getIntent();
-        final List<Mentor> mentors = intent.getParcelableExtra(MENTORS);
+        final List<Mentor> mentors = Parcels.unwrap(intent.getParcelableExtra(MENTORS));
         assert mentors != null;
         setContentView(R.layout.activity_mentors);
         ButterKnife.bind(this);
@@ -76,7 +78,7 @@ public class MentorsActivity extends AppCompatActivity implements MentorsAdapter
 
         public Intent forDisplayMentors(List<Mentor> mentors) {
             final Intent result = intentProvider.get();
-           // result.putExtra(MENTORS, ..);
+            result.putExtra(MENTORS, Parcels.wrap(mentors));
             return result;
         }
     }

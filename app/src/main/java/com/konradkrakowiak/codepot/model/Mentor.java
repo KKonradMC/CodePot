@@ -3,8 +3,9 @@ package com.konradkrakowiak.codepot.model;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.parceler.Parcel;
 
-//TODO make it parcelable
+@Parcel
 public class Mentor {
 
     private interface Metadata {

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.BindDrawable;
+import butterknife.ButterKnife;
 import com.konradkrakowiak.codepot.BuildConfig;
 import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.di.qualifier.ExceptionType;
@@ -94,8 +95,8 @@ public class MentorsAdapter extends RecyclerView.Adapter<MentorsAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Inject
-        ImageLoader imageLoader;
+//        @Inject
+//        ImageLoader imageLoader;
 
         @Inject
         StringBuilder sb;
@@ -127,7 +128,7 @@ public class MentorsAdapter extends RecyclerView.Adapter<MentorsAdapter.ViewHold
         @Inject
         public ViewHolder(@ViewQualifier.MentorItemView View view) {
             super(view);
-            //TODO bind this object
+            ButterKnife.bind(this, view);
         }
 
 
