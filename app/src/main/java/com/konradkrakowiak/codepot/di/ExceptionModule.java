@@ -15,7 +15,7 @@ public class ExceptionModule {
     }
 
     @Provides
-    @Named(ExceptionType.UNSUPPORTED_OPERATION_METHOD)
+    @Named(ExceptionType.UNSUPPORTED_BUTTON_ACTION)
     UnsupportedOperationException provideUnsupportedButtonAction() {
         return new UnsupportedOperationException("This method is not supported for Button");
     }
