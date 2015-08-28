@@ -1,6 +1,8 @@
 package com.konradkrakowiak.codepot.di;
 
-//TODO create module
+import dagger.Module;
+
+@Module
 public class ExceptionModule {
 
     //TODO use Named annotation

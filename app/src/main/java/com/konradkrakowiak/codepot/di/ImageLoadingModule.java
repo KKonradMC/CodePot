@@ -7,8 +7,9 @@ import com.nostra13.universalimageloader.cache.memory.MemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import dagger.Module;
 
-//TODO create module
+@Module
 public class ImageLoadingModule {
 
     private interface Metadata {

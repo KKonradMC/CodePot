@@ -12,10 +12,10 @@ public class CodePotApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //TODO create and init component
+        component = CodePotComponent.Initializer.init(this);
     }
 
     public static CodePotComponent component(Context context) {
-        return null;  //TODO return component from CodePotApp
+        return ((CodePotApp)context.getApplicationContext()).component;
     }
 }

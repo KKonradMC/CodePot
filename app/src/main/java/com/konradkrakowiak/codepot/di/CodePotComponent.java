@@ -6,15 +6,20 @@ import com.konradkrakowiak.codepot.network.CodePotSpiceService;
 import com.konradkrakowiak.codepot.ui.activity.MainActivity;
 import com.konradkrakowiak.codepot.ui.activity.MentorsActivity;
 import com.konradkrakowiak.codepot.ui.activity.WorkshopActivity;
+import dagger.Component;
 
-//TODO create component
+@Component(modules = {ExceptionModule.class, ImageLoadingModule.class, IntentModule.class, LangModule.class, NetworkModule.class, UtilModule.class, WidgetModule.class})
 public interface CodePotComponent {
 
     final class Initializer {
 
         public static CodePotComponent init(CodePotApp app) {
-            //TODO return CodePotComponent
-            return null;
+            return DaggerCodePotComponent
+                    .builder()
+                    .imageLoadingModule(new ImageLoadingModule(app))
+                    .intentModule(new IntentModule(app))
+                    .widgetModule(new WidgetModule(app))
+                    .build();
         }
 
     }

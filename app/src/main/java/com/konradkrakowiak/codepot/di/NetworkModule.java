@@ -4,11 +4,12 @@ package com.konradkrakowiak.codepot.di;
 import com.google.gson.Gson;
 import com.konradkrakowiak.codepot.network.DynamicEndpoint;
 import com.octo.android.robospice.SpiceManager;
+import dagger.Module;
 import retrofit.RestAdapter;
 import retrofit.converter.Converter;
 import retrofit.converter.GsonConverter;
 
-//TODO create module
+@Module
 public class NetworkModule {
 
     //TODO use provider and singleton

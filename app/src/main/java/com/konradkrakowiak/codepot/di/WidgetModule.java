@@ -6,8 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.common.DividerItemDecoration;
+import dagger.Module;
 
-//TODO Create module
+@Module
 public class WidgetModule {
 
     Context context;

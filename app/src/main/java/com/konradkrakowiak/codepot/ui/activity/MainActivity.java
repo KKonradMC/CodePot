@@ -10,6 +10,7 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import com.konradkrakowiak.codepot.CodePotApp;
 import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.common.DividerItemDecoration;
 import com.konradkrakowiak.codepot.model.Mentor;
@@ -23,37 +24,38 @@ import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.PendingRequestListener;
 import java.util.List;
+import javax.inject.Inject;
 import javax.inject.Provider;
 
 public class MainActivity extends AppCompatActivity implements PendingRequestListener<Workshops>, WorkshopAdapter.OnWorkshopItemClickListener,
         SwipeRefreshLayout.OnRefreshListener, SearchView.OnQueryTextListener {
 
-    //TODO Inject it
+    @Inject
     SpiceManager spiceManager;
 
-    //TODO Inject it
+    @Inject
     GetWorkshopsRequest getWorkshopsRequest;
 
-    //TODO Inject it
+    @Inject
     WorkshopAdapter adapter;
 
-    //TODO Inject it
+    @Inject
     LinearLayoutManager linearLayoutManager;
 
-    //TODO Inject it
+    @Inject
     Provider<PostWorkshopsSearchRequest> postWorkshopsSearchRequestProvider;
 
-    //TODO Inject it
+    @Inject
     Provider<List<Mentor>> mentorsProvider;
 
-    //TODO Inject it
+    @Inject
     WorkshopActivity.IntentFactory intentWorkShopActivityFactory;
 
-    //TODO Inject it
+    @Inject
     MentorsActivity.IntentFactory intentMentorsActivityFactory;
 
 
-    //TODO Inject and set right named
+    @Inject //TODO and set right named
     DividerItemDecoration dividerItemDecoration;
 
     //TODO Bind this view
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements PendingRequestLis
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //TODO inject members
+        CodePotApp.component(this).inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //TODO inject views

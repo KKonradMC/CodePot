@@ -4,8 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import com.konradkrakowiak.codepot.ui.activity.MentorsActivity;
 import com.konradkrakowiak.codepot.ui.activity.WorkshopActivity;
+import dagger.Module;
 
-//TODO create module
+@Module
 public class IntentModule {
 
     private final Context context;
