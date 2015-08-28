@@ -50,10 +50,10 @@ public class MentorsAdapter extends RecyclerView.Adapter<MentorsAdapter.ViewHold
                     case R.id.mentor_item_linked_in:
                         onLinkButtonClickListener.onLinkButtonClick(mentor.getLinkedinProfileURL());
                         return;
-                    case R.id.mentor_item_google_plus:
+                    case R.id.mentor_item_github:
                         onLinkButtonClickListener.onLinkButtonClick(Links.GIT_HUB + mentor.getGithubUsername());
                         return;
-                    case R.id.mentor_item_github:
+                    case R.id.mentor_item_google_plus:
                         onLinkButtonClickListener.onLinkButtonClick(Links.GOOGLE_PLUS + mentor.getGoogleplusHandler());
                         return;
                     default:
