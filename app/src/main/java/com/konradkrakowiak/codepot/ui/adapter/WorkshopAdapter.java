@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.Bind;
+import butterknife.BindString;
 import butterknife.ButterKnife;
 import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.di.qualifier.ViewQualifier;
@@ -81,20 +82,20 @@ public class WorkshopAdapter extends RecyclerView.Adapter<WorkshopAdapter.ViewHo
         @Bind(R.id.workshop_item_mentor)
         TextView mentor;
 
-        //TODO Bind this object R.id.workshop_item_title
+        @Bind(R.id.workshop_item_title)
         TextView title;
 
-        //TODO Bind this object  R.id.workshop_item_room)
+        @Bind(R.id.workshop_item_room)
         TextView room;
 
-        //TODO Bind this object  R.id.workshop_free_set)
+        @Bind(R.id.workshop_free_set)
         TextView freeSet;
 
 
-        //TODO Bind this string  R.string.room)
+        @BindString(R.string.room)
         String roomString;
 
-        //TODO Bind this string R.string.free_spaces)
+        @BindString(R.string.free_spaces)
         String freeSpaces;
 
         @Inject
@@ -109,9 +110,9 @@ public class WorkshopAdapter extends RecyclerView.Adapter<WorkshopAdapter.ViewHo
 
         void bind(Workshop workshop) {
             mentor.setText(createMentorsText(workshop));
-//            title.setText(workshop.getTitle());
-//            room.setText(String.format(roomString, createRoomText(workshop)));
-//            freeSet.setText(String.format(freeSpaces, workshop.getFreeSeats()));
+            title.setText(workshop.getTitle());
+            room.setText(String.format(roomString, createRoomText(workshop)));
+            freeSet.setText(String.format(freeSpaces, workshop.getFreeSeats()));
         }
 
         String createMentorsText(Workshop workshop) {

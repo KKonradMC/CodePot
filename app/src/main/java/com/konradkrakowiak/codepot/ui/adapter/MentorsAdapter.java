@@ -7,30 +7,36 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import butterknife.Bind;
+import butterknife.BindDrawable;
 import com.konradkrakowiak.codepot.BuildConfig;
 import com.konradkrakowiak.codepot.R;
+import com.konradkrakowiak.codepot.di.qualifier.ExceptionType;
 import com.konradkrakowiak.codepot.di.qualifier.ViewQualifier;
 import com.konradkrakowiak.codepot.model.Links;
 import com.konradkrakowiak.codepot.model.Mentor;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.List;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Provider;
 
 
 public class MentorsAdapter extends RecyclerView.Adapter<MentorsAdapter.ViewHolder> {
 
-    //TODO inject this
+    @Inject
     List<Mentor> mentors;
 
-    //TODO inject this
+    @Inject
     Provider<MentorsAdapter.ViewHolder> provider;
 
-    //TODO inject and use annotation named
+    @Named(ExceptionType.UNSUPPORTED_BUTTON_ACTION)
+    @Inject
     UnsupportedOperationException unsupportedOperationException;
 
     OnLinkButtonClickListener onLinkButtonClickListener = OnLinkButtonClickListener.NULL;
 
-    //TODO create provider and inject this
+    @Inject
     MentorsAdapter() {
     }
 
@@ -88,37 +94,37 @@ public class MentorsAdapter extends RecyclerView.Adapter<MentorsAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        //TODO inject this object
+        @Inject
         ImageLoader imageLoader;
 
-        //TODO inject this object
+        @Inject
         StringBuilder sb;
 
-        //TODO bind this R.id.mentor_item_view)
+        @Bind(R.id.mentor_item_view)
         ImageView image;
 
-        //TODO bind this (R.id.mentor_item_name)
+        @Bind(R.id.mentor_item_name)
         TextView name;
 
-        //TODO bind this R.id.mentor_item_tag_lines)
+        @Bind(R.id.mentor_item_tag_lines)
         TextView tagLines;
 
-        //TODO bind this R.mipmap.ic_launcher)
+        @BindDrawable( R.mipmap.ic_launcher)
         Drawable codePot;
 
-        /*TODO bind this
+        @Bind({
                 R.id.mentor_item_stackoverflow,
                 R.id.mentor_item_twitter,
                 R.id.mentor_item_linked_in,
                 R.id.mentor_item_google_plus,
                 R.id.mentor_item_github,
-        })*/
+        })
         ImageButton[] buttons;
 
-        //TODO bind this R.id.mentor_item_bio)
+        @Bind(R.id.mentor_item_bio)
         TextView bio;
 
-        //TODO inject and create provider
+        @Inject
         public ViewHolder(@ViewQualifier.MentorItemView View view) {
             super(view);
             //TODO bind this object
@@ -128,7 +134,7 @@ public class MentorsAdapter extends RecyclerView.Adapter<MentorsAdapter.ViewHold
         void bind(Mentor mentor) {
             sb.setLength(0);
             image.setImageDrawable(codePot);
-            imageLoader.displayImage(BuildConfig.IMAGE_URL + mentor.getPictureURL(), image);
+          //  imageLoader.displayImage(BuildConfig.IMAGE_URL + mentor.getPictureURL(), image);
             name.setText(sb
                     .append(mentor.getFirstName())
                     .append(" ")

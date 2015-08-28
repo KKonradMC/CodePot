@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import com.konradkrakowiak.codepot.CodePotApp;
 import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.di.qualifier.IntentQualifier;
 import com.konradkrakowiak.codepot.model.Mentor;
@@ -19,28 +22,29 @@ public class MentorsActivity extends AppCompatActivity implements MentorsAdapter
 
     private static final String MENTORS = "MENTORS";
 
-    //TODO bind this object
+    @Bind(R.id.mentors_list)
     RecyclerView mentorsList;
 
-    //TODO inject this object and use qualifier
+    @IntentQualifier.WebBrowserQualifier
+    @Inject
     Provider<Intent> webBrowserIntentProvider;
 
-    //TODO inject this object
+    @Inject
     MentorsAdapter adapter;
 
-    //TODO inject this object
+    @Inject
     LinearLayoutManager linearLayoutManager;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        //TODO inject here members
+        CodePotApp.component(this).inject(this);
         super.onCreate(savedInstanceState);
         final Intent intent = getIntent();
-        final List<Mentor> mentors = null; //TODO read list from intnet
+        final List<Mentor> mentors = intent.getParcelableExtra(MENTORS);
         assert mentors != null;
         setContentView(R.layout.activity_mentors);
-        //TODO bind here views
+        ButterKnife.bind(this);
         mentorsList.setLayoutManager(linearLayoutManager);
         mentorsList.setAdapter(adapter);
         adapter.setOnLinkButtonClickListener(this);
@@ -72,7 +76,7 @@ public class MentorsActivity extends AppCompatActivity implements MentorsAdapter
 
         public Intent forDisplayMentors(List<Mentor> mentors) {
             final Intent result = intentProvider.get();
-            //TODO put mentors list in intent
+           // result.putExtra(MENTORS, ..);
             return result;
         }
     }
