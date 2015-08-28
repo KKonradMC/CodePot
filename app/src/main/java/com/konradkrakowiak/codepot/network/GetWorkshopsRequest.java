@@ -13,7 +13,7 @@ public class GetWorkshopsRequest extends RetrofitSpiceRequest<Workshops, CodePot
 
     @Override
     public Workshops loadDataFromNetwork() throws Exception {
-        return null; //TODO return right object
+        return getService().getWorkshops();
     }
 
     public String getCacheKey() {
