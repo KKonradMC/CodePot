@@ -1,14 +1,16 @@
 package com.konradkrakowiak.codepot.di.qualifier;
 
 
+import javax.inject.Qualifier;
+
 public interface ViewQualifier {
 
-    //TODO use qualifier
+    @Qualifier
     @interface WorkshopItemView {
 
     }
 
-    //TODO use qualifier
+    @Qualifier
     @interface MentorItemView {
 
     }

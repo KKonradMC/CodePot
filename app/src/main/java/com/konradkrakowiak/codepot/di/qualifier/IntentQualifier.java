@@ -1,19 +1,21 @@
 package com.konradkrakowiak.codepot.di.qualifier;
 
 
+import javax.inject.Qualifier;
+
 public interface IntentQualifier {
 
-    //TODO use qualifier
+    @Qualifier
     @interface WorkshopActivityIntentQualifier {
 
     }
 
-    //TODO use qualifier
+    @Qualifier
     @interface MentorsActivityIntentQualifier {
 
     }
 
-    //TODO use qualifier
+    @Qualifier
     @interface WebBrowserQualifier {
 
     }

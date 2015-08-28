@@ -6,8 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import com.konradkrakowiak.codepot.R;
 import com.konradkrakowiak.codepot.common.DividerItemDecoration;
+import com.konradkrakowiak.codepot.di.qualifier.DividerItemDecorationType;
+import com.konradkrakowiak.codepot.di.qualifier.ViewQualifier;
 import dagger.Module;
 import dagger.Provides;
+import javax.inject.Named;
+import javax.inject.Qualifier;
 
 @Module
 public class WidgetModule {
@@ -28,22 +32,26 @@ public class WidgetModule {
         return LayoutInflater.from(context);
     }
 
-    @Provides//TODO qualifier
+    @ViewQualifier.WorkshopItemView
+    @Provides
     View provideWorkshopItemView(LayoutInflater layoutInflater) {
         return layoutInflater.inflate(R.layout.view_workshop_item, null);
     }
 
-    @Provides//TODO qualifier
+    @ViewQualifier.MentorItemView
+    @Provides
     View provideMentorItemView(LayoutInflater layoutInflater) {
         return layoutInflater.inflate(R.layout.view_mentor_list_item, null);
     }
 
-    @Provides//TODO named
+    @Named(DividerItemDecorationType.HORIZONTAL_DIVIDER_ITEM_DECORATION)
+    @Provides
     DividerItemDecoration provideHorizontalDividerItemDecoration() {
         return new DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL_LIST);
     }
 
-    @Provides//TODO named
+    @Named(DividerItemDecorationType.VERTICAL_DIVIDER_ITEM_DECORATION)
+    @Provides
     DividerItemDecoration provideVerticalDividerItemDecoration() {
         return new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST);
     }

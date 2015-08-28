@@ -2,6 +2,7 @@ package com.konradkrakowiak.codepot.di;
 
 import android.content.Context;
 import android.content.Intent;
+import com.konradkrakowiak.codepot.di.qualifier.IntentQualifier;
 import com.konradkrakowiak.codepot.ui.activity.MentorsActivity;
 import com.konradkrakowiak.codepot.ui.activity.WorkshopActivity;
 import dagger.Module;
@@ -17,17 +18,19 @@ public class IntentModule {
         this.context = context;
     }
 
-
+    @IntentQualifier.WebBrowserQualifier
     @Provides//TODO provider and qualifier
     Intent provideWorkshopActivityIntent() {
         return new Intent(context, WorkshopActivity.class);
     }
 
+    @IntentQualifier.MentorsActivityIntentQualifier
     @Provides//TODO provider and qualifier
     Intent provideMentorActivityIntent() {
         return new Intent(context, MentorsActivity.class);
     }
 
+    @IntentQualifier.WebBrowserQualifier
     @Provides//TODO provider and qualifier
     Intent provideWebBrowserIntent() {
         return new Intent(Intent.ACTION_VIEW);
