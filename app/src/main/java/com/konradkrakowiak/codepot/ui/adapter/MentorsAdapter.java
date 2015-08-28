@@ -95,8 +95,8 @@ public class MentorsAdapter extends RecyclerView.Adapter<MentorsAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-//        @Inject
-//        ImageLoader imageLoader;
+        @Inject
+        ImageLoader imageLoader;
 
         @Inject
         StringBuilder sb;
@@ -135,7 +135,7 @@ public class MentorsAdapter extends RecyclerView.Adapter<MentorsAdapter.ViewHold
         void bind(Mentor mentor) {
             sb.setLength(0);
             image.setImageDrawable(codePot);
-          //  imageLoader.displayImage(BuildConfig.IMAGE_URL + mentor.getPictureURL(), image);
+            imageLoader.displayImage(BuildConfig.IMAGE_URL + mentor.getPictureURL(), image);
             name.setText(sb
                     .append(mentor.getFirstName())
                     .append(" ")
